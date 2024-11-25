@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">EatHit</string>
+    <string name="fuel_your_studies_with_delicious_meals">Fuel Your Studies with Delicious Meals</string>
+    <string name="reservation_title">Reservation Form</string>
+    <string name="reservation_details_title">Reservation Details</string>
+    <string name="back_button">Back</string>
+    <string name="students_text">Students</string>
+    <string name="friendly_text">Friendly</string>
+    <string name="affordable_text">Affordable &amp; Convenient</string>
+    <string name="menu_button">Menu</string>
+    <string name="reservation_button">Reservation</string>
+    <string name="personal_details_title">Personal Details</string>
+    <string name="full_name_hint">Full Name</string>
+    <string name="phone_number_hint">Phone Number</string>
+    <string name="email_address_hint">Email Address</string>
+    <string name="pick_date_button">Pick a Date</string>
+    <string name="pick_time_button">Pick a Time</string>
+    <string name="submit_reservation_button">Submit Reservation</string>
+
+    <string name="back_to_main_menu">Back to Main Menu</string>
+    <string name="rate_experience_prompt">How would you rate your experience?</string>
+    <string name="menu_title">Welcome to the Menu!</string>
+    <string name="food_section">Meals</string>
+    <string name="drinks_section">Drinks</string>
+    <string name="desserts_section">Desserts</string>
+    <string name="back_button_text">Back</string>
+    <string name="default_dish_name">Dish Name</string>
+    <string name="default_dish_description">Dish description goes here.</string>
+    <string name="default_dish_price">₪ 19.00</string>
+
+
+
+
+</resources>

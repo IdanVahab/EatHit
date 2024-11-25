@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">EatHit</string>
+    <string name="fuel_your_studies_with_delicious_meals">שפרו את הלימודים עם ארוחות טעימות</string>
+    <string name="reservation_title">טופס הזמנה</string>
+    <string name="reservation_details_title">פרטי ההזמנה</string>
+    <string name="back_button">חזור</string>
+    <string name="students_text">סטודנטים</string>
+    <string name="friendly_text">ידידותי</string>
+    <string name="affordable_text">נגיש ונוח</string>
+    <string name="menu_button">תפריט</string>
+    <string name="reservation_button">הזמנה</string>
+    <string name="personal_details_title">פרטים אישיים</string>
+    <string name="full_name_hint">שם מלא</string>
+    <string name="phone_number_hint">מספר טלפון</string>
+    <string name="email_address_hint">כתובת דוא"ל</string>
+    <string name="pick_date_button">בחר תאריך</string>
+    <string name="pick_time_button">בחר שעה</string>
+    <string name="submit_reservation_button">שלח הזמנה</string>
+
+    <string name="back_to_main_menu">חזרה לתפריט הראשי</string>
+    <string name="rate_experience_prompt">איך היית מדרג את החוויה שלך?</string>
+    <string name="menu_title">ברוכים הבאים לתפריט!</string>
+    <string name="food_section">ארוחות</string>
+    <string name="drinks_section">שתייה</string>
+    <string name="desserts_section">קינוחים</string>
+    <string name="back_button_text">חזור</string>
+    <string name="default_dish_name">שם המנה</string>
+    <string name="default_dish_description">תיאור המנה כאן.</string>
+    <string name="default_dish_price">₪ 19.00</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary_dark">#C70039</color>
+    <color name="accent">#FFC300</color>
+    <color name="background_light">#F8F9FA</color>
+    <color name="text_primary">#212529</color>
+    <color name="primary">#90CAF9</color> <!-- תכלת בהיר -->
+    <color name="secondary">#A5D6A7</color> <!-- ירוק בהיר -->
+    <color name="textColorSecondary">#FFD700</color>
+    <color name="text_secondary">#757575</color> <!-- טקסט אפור כהה -->
+    <color name="background_gradient_start">#E3F2FD</color> <!-- כחול בהיר -->
+    <color name="background_gradient_end">#FFFFFF</color> <!-- לבן -->
+    <color name="soft_yellow">#FDF4AB</color>
+    <color name="backgroundGradient">#FFFAF3</color>
+    <color name="backgroundGradientDark">#121212</color>
+    <color name="backgroundGradientStart">#85AAAA</color> <!-- תכלת בהיר -->
+    <color name="backgroundGradientEnd">#173F4E</color> <!-- ורוד בהיר -->
+    <color name="backgroundGradientDarkStart">#112B3C</color> <!-- כחול כהה למצב כהה -->
+    <color name="backgroundGradientDarkEnd">#264653</color> <!-- ירוק כהה עדין -->
+
+
+
+</resources>

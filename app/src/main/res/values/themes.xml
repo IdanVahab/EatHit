@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EatHit" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.EatHit" parent="Base.Theme.EatHit" />
+    <style name="ThemeEatHit" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:windowBackground">@drawable/background_particles</item>
+        <item name="isLightTheme">true</item>
+    </style>
+
+    <style name="Theme.EatHit.Dark" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:windowBackground">@drawable/background_particles_dark</item>
+        <item name="isLightTheme">false</item>
+    </style>
+
+</resources>
