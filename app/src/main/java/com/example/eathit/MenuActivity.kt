@@ -87,17 +87,17 @@ class MenuActivity : AppCompatActivity() {
         return listOf(
             Dish(
                 "Vegan Burger", "המבורגר טבעוני",
-                "A delicious vegan patty with fresh veggies.", "פאטי טבעוני טעים עם ירקות טריים.",
+                "A delicious vegan patty with fresh veggies.", "המבורגר טבעוני טעים עם ירקות טריים, מגיע עם ציפס ושתייה.",
                 "₪29.00", R.drawable.vegan
             ),
             Dish(
                 "Beef Burger", "המבורגר בקר",
-                "Juicy beef patty with fresh toppings.", "פאטי בקר עסיסי עם תוספות טריות.",
+                "Juicy beef patty with fresh toppings.", "המבורגר בקר עסיסי עם תוספות טריות, מגיע עם ציפס ושתייה.",
                 "₪39.00", R.drawable.beefburger
             ),
             Dish(
                 "Chicken Burger", "המבורגר עוף",
-                "Crispy chicken patty with lettuce.", "פאטי עוף פריך עם חסה.",
+                "Crispy chicken patty with lettuce.", "המבורגר עוף פריך עם חסה, מגיע עם ציפס ושתייה.",
                 "₪35.00", R.drawable.chickenburger
             ),
             Dish(

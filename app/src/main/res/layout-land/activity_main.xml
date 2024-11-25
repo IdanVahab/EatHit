@@ -21,34 +21,34 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- לוגו -->
+
+    <!-- אנימציית אוכל -->
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="56dp"
-        android:src="@drawable/logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="36dp"
         android:contentDescription="לוגו החברה"
+        android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- אנימציית אוכל -->
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/homeAnimation"
         android:layout_width="250dp"
         android:layout_height="250dp"
+        android:contentDescription="אנימציית מסך פתיחה"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.6"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/openanimation"
-        android:contentDescription="אנימציית מסך פתיחה" />
-
-
+        app:lottie_rawRes="@raw/openanimation" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

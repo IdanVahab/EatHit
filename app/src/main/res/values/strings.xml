@@ -27,8 +27,46 @@
     <string name="default_dish_name">Dish Name</string>
     <string name="default_dish_description">Dish description goes here.</string>
     <string name="default_dish_price">₪ 19.00</string>
-
-
-
+    <string-array name="number_of_people">
+        <item>Number of Guests</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="seating_preferences">
+        <item>Preferred Seating</item>
+        <item>Indoors</item>
+        <item>Outdoors</item>
+        <item>Bar</item>
+    </string-array>
+    <string-array name="payment_methods">
+        <item>Payment Method</item>
+        <item>Credit Card</item>
+        <item>PayPal</item>
+        <item>Cash</item>
+    </string-array>
+    <string name="vegan_menu_question">Vegan Menu?</string>
+    <string name="reservation_details_template">
+        Full Name: %1$s\n
+        Phone: %2$s\n
+        Email: %3$s\n
+        Date: %4$s\n
+        Time: %5$s\n
+        Number of Guests: %6$s\n
+        Seating Preference: %7$s
+    </string>
+    <string name="rate_your_experience">Rate Your Experience</string>
+    <string name="thank_you_title">Thank You</string>
+    <string name="feedback_message_with_rating">Thank you for your feedback! You rated us %1$.1f stars.</string>
+    <string name="feedback_message_without_rating">Thank you for visiting us!</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

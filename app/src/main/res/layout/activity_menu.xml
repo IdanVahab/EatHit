@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_particles"
     android:padding="16dp"
+    android:clipToPadding="false"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -152,17 +153,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:visibility="gone" />
 
+
+
         <!-- כפתור Back -->
         <Button
             android:id="@+id/backButtonMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/back_button_text"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:backgroundTint="@color/secondary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginBottom="20dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

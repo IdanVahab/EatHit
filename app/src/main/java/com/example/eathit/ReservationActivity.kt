@@ -37,23 +37,41 @@ class ReservationActivity : AppCompatActivity() {
         val submitButton: Button = findViewById(R.id.submitButton)
         val backButton: Button = findViewById(R.id.backButton) // הוספת כפתור חזרה
 
-        numberOfPeopleSpinner.adapter = ArrayAdapter(
+        val adapter = ArrayAdapter.createFromResource(
             this,
-            android.R.layout.simple_spinner_dropdown_item,
-            numberOfPeopleOptions
+            R.array.number_of_people, // מזהה המערך
+            android.R.layout.simple_spinner_item // עיצוב ברירת המחדל
         )
 
-        seatingPreferenceSpinner.adapter = ArrayAdapter(
+// עיצוב התפריט הנפתח
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+// חיבור המערך לספינר
+        numberOfPeopleSpinner.adapter = adapter
+
+        val seatingAdapter = ArrayAdapter.createFromResource(
             this,
-            android.R.layout.simple_spinner_dropdown_item,
-            seatingOptions
+            R.array.seating_preferences, // מזהה המערך
+            android.R.layout.simple_spinner_item // עיצוב ברירת המחדל לפריט בספינר
         )
 
-        paymentMethodSpinner.adapter = ArrayAdapter(
+// עיצוב התפריט הנפתח
+        seatingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+// חיבור המערך לספינר
+        seatingPreferenceSpinner.adapter = seatingAdapter
+
+        val paymentAdapter = ArrayAdapter.createFromResource(
             this,
-            android.R.layout.simple_spinner_dropdown_item,
-            paymentMethods
+            R.array.payment_methods, // מזהה המערך
+            android.R.layout.simple_spinner_item // עיצוב ברירת המחדל לפריט בספינר
         )
+
+// עיצוב התפריט הנפתח
+        paymentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+// חיבור המערך לספינר
+        paymentMethodSpinner.adapter = paymentAdapter
 
         fullNameInput.addTextChangedListener(createTextWatcher(fullNameInput, "Name is required") { it.length >= 2 })
         phoneInput.addTextChangedListener(createTextWatcher(phoneInput, "Phone must be 9-10 digits") {

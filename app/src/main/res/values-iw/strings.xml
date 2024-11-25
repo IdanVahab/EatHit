@@ -27,4 +27,46 @@
     <string name="default_dish_name">שם המנה</string>
     <string name="default_dish_description">תיאור המנה כאן.</string>
     <string name="default_dish_price">₪ 19.00</string>
+    <string-array name="number_of_people">
+        <item>מספר אורחים</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="seating_preferences">
+        <item>העדפת ישיבה</item>
+        <item>בתוך המסעדה</item>
+        <item>בחוץ</item>
+        <item>בר</item>
+    </string-array>
+    <string-array name="payment_methods">
+        <item>שיטת תשלום</item>
+        <item>כרטיס אשראי</item>
+        <item>פייפאל</item>
+        <item>מזומן</item>
+    </string-array>
+    <string name="vegan_menu_question">תפריט טבעוני?</string>
+    <string name="reservation_details_template">
+        שם מלא: %1$s\n
+        טלפון: %2$s\n
+        אימייל: %3$s\n
+        תאריך: %4$s\n
+        שעה: %5$s\n
+        מספר אורחים: %6$s\n
+        העדפת ישיבה: %7$s
+    </string>
+    <string name="rate_your_experience">דרג את החוויה שלך</string>
+    <string name="thank_you_title">תודה</string>
+    <string name="feedback_message_with_rating">תודה על המשוב שלך! דירגת אותנו ב-%1$.1f כוכבים.</string>
+    <string name="feedback_message_without_rating">תודה שביקרת אצלנו!</string>
+    <string name="submit">שלח</string>
+    <string name="cancel">ביטול</string>
+
 </resources>

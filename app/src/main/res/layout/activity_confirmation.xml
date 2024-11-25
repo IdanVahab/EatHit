@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:textSize="16sp"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:gravity="center"
             android:text="@string/reservation_details_title" />
     </androidx.cardview.widget.CardView>
@@ -58,7 +58,7 @@
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:text="@string/back_to_main_menu"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:backgroundTint="@color/secondary"
         app:cornerRadius="16dp"
         app:iconSize="24dp" />
