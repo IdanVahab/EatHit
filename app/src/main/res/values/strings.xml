@@ -17,7 +17,7 @@
     <string name="pick_time_button">Pick a Time</string>
     <string name="submit_reservation_button">Submit Reservation</string>
 
-    <string name="back_to_main_menu">Back to Main Menu</string>
+    <string name="back_to_main_menu">Confirm and Back to Main Menu</string>
     <string name="rate_experience_prompt">How would you rate your experience?</string>
     <string name="menu_title">Welcome to the Menu!</string>
     <string name="food_section">Meals</string>
