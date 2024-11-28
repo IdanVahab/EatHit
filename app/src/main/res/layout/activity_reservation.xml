@@ -1,5 +1,6 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/mainLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,6 +20,10 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
+        android:shadowColor="#808080"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -47,6 +52,9 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColorHint="#3E2723"
+        android:gravity="start|center_vertical"
+        android:layoutDirection="locale"
+        android:textDirection="locale"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/personalDetailsTitle"
@@ -61,6 +69,8 @@
         android:autofillHints=""
         android:hint="@string/phone_number_hint"
         android:inputType="phone"
+        android:layoutDirection="locale"
+        android:textDirection="locale"
         android:minHeight="48dp"
         android:textColorHint="#212121"
         app:layout_constraintEnd_toEndOf="parent"

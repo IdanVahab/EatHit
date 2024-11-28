@@ -4,8 +4,8 @@
     <string name="reservation_title">טופס הזמנה</string>
     <string name="reservation_details_title">פרטי ההזמנה</string>
     <string name="back_button">חזור</string>
-    <string name="students_text">סטודנטים</string>
-    <string name="friendly_text">ידידותי</string>
+    <string name="students_text">הבית החם של </string>
+    <string name="friendly_text">הסטודנטים</string>
     <string name="affordable_text">נגיש ונוח</string>
     <string name="menu_button">תפריט</string>
     <string name="reservation_button">הזמנה</string>

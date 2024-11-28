@@ -1,5 +1,6 @@
 package com.example.eathit
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
@@ -15,12 +16,14 @@ import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
 import java.util.Calendar
 
+
 class ReservationActivity : AppCompatActivity() {
 
     private val numberOfPeopleOptions = listOf("Number of Guests") + (1..10).map { it.toString() }
     private val seatingOptions = listOf("Preferred Seating", "Indoors", "Outdoors", "Bar")
     private val paymentMethods = listOf("Credit Card", "PayPal", "Cash")
 
+    @SuppressLint("DefaultLocale", "UseSwitchCompatOrMaterialCode")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reservation)
@@ -34,6 +37,17 @@ class ReservationActivity : AppCompatActivity() {
         val seatingPreferenceSpinner: Spinner = findViewById(R.id.seatingPreferenceSpinner)
         val paymentMethodSpinner: Spinner = findViewById(R.id.paymentMethodSpinner)
         val veganSwitch: Switch = findViewById(R.id.veganSwitch)
+        veganSwitch.setOnCheckedChangeListener { _, isChecked ->
+            val mainLayout = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.mainLayout) // עדכן את ה-ID בהתאם לקובץ ה-XML שלך
+            if (isChecked) {
+      // שינוי צבע המתג במצב דלוק
+                veganSwitch.thumbDrawable?.setTint(android.graphics.Color.GREEN)
+            } else {
+                // מחזיר את צבע המתג למצב כבוי
+                veganSwitch.thumbDrawable?.setTint(android.graphics.Color.GRAY)
+            }
+        }
+
         val submitButton: Button = findViewById(R.id.submitButton)
         val backButton: Button = findViewById(R.id.backButton) // הוספת כפתור חזרה
 
@@ -73,7 +87,18 @@ class ReservationActivity : AppCompatActivity() {
 // חיבור המערך לספינר
         paymentMethodSpinner.adapter = paymentAdapter
 
-        fullNameInput.addTextChangedListener(createTextWatcher(fullNameInput, "Name is required") { it.length >= 2 })
+        fullNameInput.addTextChangedListener(createTextWatcher(fullNameInput, "Name is required") { input ->
+            // בדוק אם השפה היא עברית או אנגלית
+            val isRTL = resources.configuration.layoutDirection == android.view.View.LAYOUT_DIRECTION_RTL
+
+            // עדכן את הכיווניות בהתאם לשפה
+            fullNameInput.textDirection = if (isRTL) android.view.View.TEXT_DIRECTION_RTL else android.view.View.TEXT_DIRECTION_LTR
+            fullNameInput.layoutDirection = if (isRTL) android.view.View.LAYOUT_DIRECTION_RTL else android.view.View.LAYOUT_DIRECTION_LTR
+
+            // בדיקת תקינות: קלט בעברית או אנגלית עם מינימום 2 תווים
+            input.matches(Regex("^[\\u0590-\\u05FF\\sA-Za-z]{2,}$"))
+        })
+
         phoneInput.addTextChangedListener(createTextWatcher(phoneInput, "Phone must be 9-10 digits") {
             it.matches(Regex("\\d{9,10}"))
         })
@@ -105,6 +130,21 @@ class ReservationActivity : AppCompatActivity() {
         }
 
         submitButton.setOnClickListener {
+            // ביצוע האנימציות
+            submitButton.animate()
+                .scaleX(1.1f) // הרחבה
+                .scaleY(1.1f)
+                .setDuration(20) // משך ההרחבה
+                .start()
+
+            // שינוי צבע הדרגתי
+            val originalColor = submitButton.backgroundTintList
+            submitButton.setBackgroundColor(getColor(R.color.backgroundGradientStart)) // שינוי לצבע בולט זמני
+            submitButton.postDelayed({
+                submitButton.backgroundTintList = originalColor // החזרה לצבע המקורי
+            }, 300) // המתנה של 300ms
+
+            // הפעלת האינטנט
             val intent = Intent(this, ConfirmationActivity::class.java).apply {
                 putExtra("FULL_NAME", fullNameInput.text.toString())
                 putExtra("PHONE", phoneInput.text.toString())
@@ -118,7 +158,6 @@ class ReservationActivity : AppCompatActivity() {
             }
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-
         }
 
         // מאזין לכפתור חזרה

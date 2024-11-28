@@ -1,6 +1,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_particles"
@@ -21,6 +22,7 @@
             android:text="@string/menu_title"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,14 +54,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    tools:ignore="UselessParent">
 
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/foodAnimation"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:lottie_rawRes="@raw/maindish"
-                        app:lottie_autoPlay="false"
+                        app:lottie_autoPlay="true"
                         app:lottie_loop="true" />
 
                     <TextView
@@ -93,7 +96,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:lottie_rawRes="@raw/drinks"
-                        app:lottie_autoPlay="false"
+                        app:lottie_autoPlay="true"
                         app:lottie_loop="true" />
 
                     <TextView
@@ -127,7 +130,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         app:lottie_rawRes="@raw/dessert"
-                        app:lottie_autoPlay="false"
+                        app:lottie_autoPlay="true"
                         app:lottie_loop="true" />
 
                     <TextView

@@ -52,6 +52,7 @@
         android:layout_height="wrap_content"
         android:text="@string/fuel_your_studies_with_delicious_meals"
         android:textSize="20sp"
+        android:layout_margin="16dp"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@id/friendlyText"
         app:layout_constraintStart_toStartOf="parent"
