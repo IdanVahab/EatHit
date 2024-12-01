@@ -5,15 +5,14 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- שאלה לגבי דירוג החוויה -->
+    <!-- TextView to prompt the user to rate their experience -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/rate_experience_prompt"
         android:textSize="16sp"
         android:layout_marginBottom="10dp" />
-
-    <!-- RatingBar לדירוג -->
+    <!-- RatingBar to allow users to rate the experience -->
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
@@ -21,5 +20,5 @@
         android:layout_gravity="center"
         android:numStars="5"
         android:stepSize="0.5"
-        android:rating="0" />
+        android:rating="0" />  <!-- Default rating value set to 0 -->
 </LinearLayout>

@@ -9,12 +9,13 @@
     android:clipToPadding="false"
     android:fillViewport="true">
 
+    <!-- Parent ConstraintLayout to organize all child elements -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- טקסט לעמוד ה-Menu -->
+        <!-- Title TextView for the menu -->
         <TextView
             android:id="@+id/menuText"
             android:layout_width="wrap_content"
@@ -28,11 +29,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="20dp" />
 
-        <!-- אנימציות בשורה אחת -->
+        <!-- Row for food, drinks, and dessert animation cards -->
         <LinearLayout
             android:id="@+id/animationsRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:baselineAligned="false"
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_marginTop="20dp"
@@ -40,16 +42,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- כרטיס עבור ארוחות -->
+            <!-- Food Card with Lottie Animation -->
             <FrameLayout
+                android:id="@+id/foodCard"
+                android:foreground="?attr/selectableItemBackground"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="8dp"
                 android:background="@drawable/animation_card_background"
                 android:elevation="8dp"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:clickable="true"
+                android:focusable="true">
 
+                <!-- Content for the Food Card -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -57,6 +64,7 @@
                     android:gravity="center"
                     tools:ignore="UselessParent">
 
+                    <!-- Food Lottie Animation -->
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/foodAnimation"
                         android:layout_width="100dp"
@@ -65,6 +73,7 @@
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true" />
 
+                    <!-- Food Section Label -->
                     <TextView
                         android:id="@+id/foodText"
                         android:layout_width="wrap_content"
@@ -75,22 +84,30 @@
                 </LinearLayout>
             </FrameLayout>
 
-            <!-- כרטיס עבור שתייה -->
+            <!-- Drinks Card with Lottie Animation -->
             <FrameLayout
+                android:id="@+id/drinksCard"
+                android:foreground="?attr/selectableItemBackground"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="8dp"
                 android:background="@drawable/animation_card_background"
                 android:elevation="8dp"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                tools:ignore="ExtraText">>
 
+                <!-- Content for the Drinks Card -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    tools:ignore="UselessParent">
 
+                    <!-- Drinks Lottie Animation -->
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/drinksAnimation"
                         android:layout_width="100dp"
@@ -99,6 +116,7 @@
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true" />
 
+                    <!-- Drinks Section Label -->
                     <TextView
                         android:id="@+id/drinksText"
                         android:layout_width="wrap_content"
@@ -109,22 +127,29 @@
                 </LinearLayout>
             </FrameLayout>
 
-            <!-- כרטיס עבור קינוחים -->
+            <!-- Dessert Card with Lottie Animation -->
             <FrameLayout
+                android:id="@+id/dessertCard"
+                android:foreground="?attr/selectableItemBackground"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="8dp"
                 android:background="@drawable/animation_card_background"
                 android:elevation="8dp"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:clickable="true"
+                android:focusable="true">>
 
+                <!-- Content for the Dessert Card -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    tools:ignore="UselessParent">
 
+                    <!-- Dessert Lottie Animation -->
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/dessertAnimation"
                         android:layout_width="100dp"
@@ -133,6 +158,7 @@
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true" />
 
+                    <!-- Dessert Section Label -->
                     <TextView
                         android:id="@+id/dessertsText"
                         android:layout_width="wrap_content"
@@ -144,7 +170,7 @@
             </FrameLayout>
         </LinearLayout>
 
-        <!-- רשימת מנות -->
+        <!-- Container for displaying selected dishes -->
         <LinearLayout
             android:id="@+id/dishesContainer"
             android:layout_width="match_parent"
@@ -157,8 +183,7 @@
             android:visibility="gone" />
 
 
-
-        <!-- כפתור Back -->
+        <!-- Back Button -->
         <Button
             android:id="@+id/backButtonMenu"
             android:layout_width="wrap_content"

@@ -7,8 +7,7 @@
     tools:context=".MainActivity"
     >
 
-
-    <!-- רקע דינמי -->
+    <!-- Full-screen background image -->
     <ImageView
         android:id="@+id/background"
         android:layout_width="match_parent"
@@ -20,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- לוגו -->
+    <!-- App logo centered at the top -->
     <ImageView
         android:id="@+id/logo"
         android:layout_width="200dp"
@@ -32,7 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- אנימציית אוכל -->
+    <!-- Opening animation displayed below the logo -->
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/homeAnimation"
         android:layout_width="250dp"

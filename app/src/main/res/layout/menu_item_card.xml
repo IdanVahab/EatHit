@@ -10,7 +10,7 @@
     android:layout_margin="8dp"
     android:elevation="4dp">
 
-    <!-- תמונת המנה -->
+    <!-- ImageView to display the dish image -->
     <ImageView
         android:id="@+id/dishImage"
         android:layout_width="80dp"
@@ -19,9 +19,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/chickenburger" />
 
-
-
-    <!-- פרטי המנה -->
+    <!-- LinearLayout for dish details: name and description -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -30,6 +28,7 @@
         android:paddingStart="16dp"
         tools:ignore="RtlSymmetry">
 
+        <!-- TextView for the dish name -->
         <TextView
             android:id="@+id/dishName"
             android:layout_width="wrap_content"
@@ -39,6 +38,7 @@
             android:textColor="@android:color/black"
             android:textStyle="bold" />
 
+        <!-- TextView for the dish description -->
         <TextView
             android:id="@+id/dishDescription"
             android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
             tools:ignore="TextContrastCheck" />
     </LinearLayout>
 
-    <!-- מחיר המנה -->
+    <!-- TextView for the dish price -->
     <TextView
         android:id="@+id/dishPrice"
         android:layout_width="wrap_content"

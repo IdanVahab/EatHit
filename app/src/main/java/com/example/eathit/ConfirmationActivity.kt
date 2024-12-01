@@ -11,18 +11,22 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.airbnb.lottie.LottieAnimationView
 
-
+/**
+ * ConfirmationActivity:
+ * This activity displays a confirmation animation and reservation details after a successful booking.
+ * It also includes a rating dialog for user feedback and a back button to navigate to the previous screen.
+ */
 class ConfirmationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirmation)
-
+        // UI components
         val confirmationAnimation: LottieAnimationView = findViewById(R.id.confirmationAnimation)
         val reservationDetails: TextView = findViewById(R.id.reservationDetails)
         val backButton: Button = findViewById(R.id.backButton)
 
-// מקבל את הנתונים מה-Intent
+        // Retrieve reservation details from the Intent
         val fullName = intent.getStringExtra("FULL_NAME") ?: "N/A"
         val phone = intent.getStringExtra("PHONE") ?: "N/A"
         val email = intent.getStringExtra("EMAIL") ?: "N/A"
@@ -31,7 +35,7 @@ class ConfirmationActivity : AppCompatActivity() {
         val numberOfPeople = intent.getStringExtra("NUMBER_OF_PEOPLE") ?: "N/A"
         val seatingPreference = intent.getStringExtra("SEATING_PREFERENCE") ?: "N/A"
 
-// שימוש בתבנית מחרוזת מתורגמת
+        // Format the reservation details
         val reservationText = getString(
             R.string.reservation_details_template,
             fullName,
@@ -44,19 +48,19 @@ class ConfirmationActivity : AppCompatActivity() {
         )
 
         reservationDetails.text = reservationText
-        reservationDetails.alpha = 0f // מוסתר עד לסיום האנימציה
-
-// הפעלת האנימציה
+        reservationDetails.alpha = 0f // Initially hide the details
+        // Set up the confirmation animation
         confirmationAnimation.setAnimation(R.raw.confirmation)
         confirmationAnimation.repeatCount = 0
         confirmationAnimation.playAnimation()
 
+        // Listener to show reservation details after the animation ends
         confirmationAnimation.addAnimatorListener(object : Animator.AnimatorListener {
             override fun onAnimationStart(animation: Animator) {}
 
             override fun onAnimationEnd(animation: Animator) {
-                reservationDetails.animate().alpha(1f).duration = 500 // הצגת פרטי ההזמנה
-                showRatingDialog() // הצגת דיאלוג הדירוג
+                reservationDetails.animate().alpha(1f).duration = 500
+                showRatingDialog()
             }
 
             override fun onAnimationCancel(animation: Animator) {}
@@ -64,51 +68,54 @@ class ConfirmationActivity : AppCompatActivity() {
             override fun onAnimationRepeat(animation: Animator) {}
         })
 
+        // Back button with a scaling animation and navigation to the previous activity
         backButton.setOnClickListener {
-            startActivity(Intent(this, NextActivity::class.java))
-            finish()
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            backButton.animate()
+                .scaleX(1.1f)
+                .scaleY(1.1f)
+                .withEndAction {
+                    backButton.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(150)
+                        .withEndAction {
+                            startActivity(Intent(this,NextActivity::class.java))
+                            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                        }.start()
+                }.start()
 
         }
     }
 
+    /**
+     * Shows a dialog to allow the user to rate their experience.
+     * Includes a RatingBar and feedback message based on the user's input.
+     */
     private fun showRatingDialog() {
+        // Inflate the custom rating dialog layout
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_rating, null)
-
         val ratingBar = dialogView.findViewById<RatingBar>(R.id.ratingBar)
 
+        // Build and display the rating dialog
         AlertDialog.Builder(this)
-            .setTitle(getString(R.string.rate_your_experience)) // תרגום הכותרת
+            .setTitle(getString(R.string.rate_your_experience))
             .setView(dialogView)
             .setPositiveButton(getString(R.string.submit)) { _, _ ->
                 val rating = ratingBar.rating
                 val message = if (rating > 0) {
-                    getString(R.string.feedback_message_with_rating, rating) // הודעה עם דירוג
+                    getString(R.string.feedback_message_with_rating, rating)
                 } else {
-                    getString(R.string.feedback_message_without_rating) // הודעה ללא דירוג
+                    getString(R.string.feedback_message_without_rating)
                 }
 
                 AlertDialog.Builder(this)
-                    .setTitle(getString(R.string.thank_you_title)) // כותרת תודות
+                    .setTitle(getString(R.string.thank_you_title))
                     .setMessage(message)
                     .setPositiveButton("OK", null)
                     .show()
             }
-            .setNegativeButton(getString(R.string.cancel), null) // תרגום כפתור ביטול
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
-    private fun showThankYouDialog(rating: Float?) {
 
-        val message = if (rating != null) {
-            "Thank you for your feedback! You rated us $rating stars."
-        } else {
-            "Thank you for visiting us!"
-        }
-
-        AlertDialog.Builder(this)
-            .setTitle("Thank You")
-            .setMessage(message)
-            .setPositiveButton("OK", null)
-            .show()
-    }
 }

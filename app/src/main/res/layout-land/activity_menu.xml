@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- טקסט לעמוד ה-Menu -->
         <TextView
             android:id="@+id/menuText"
             android:layout_width="wrap_content"
@@ -25,7 +24,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="20dp" />
 
-        <!-- אנימציות בשורה אחת -->
         <LinearLayout
             android:id="@+id/animationsRow"
             android:layout_width="match_parent"
@@ -37,8 +35,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- כרטיס עבור ארוחות -->
             <FrameLayout
+                android:id="@+id/foodCard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -71,8 +69,8 @@
                 </LinearLayout>
             </FrameLayout>
 
-            <!-- כרטיס עבור שתייה -->
             <FrameLayout
+                android:id="@+id/drinksCard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -105,8 +103,8 @@
                 </LinearLayout>
             </FrameLayout>
 
-            <!-- כרטיס עבור קינוחים -->
             <FrameLayout
+                android:id="@+id/dessertCard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -140,7 +138,6 @@
             </FrameLayout>
         </LinearLayout>
 
-        <!-- רשימת מנות -->
         <LinearLayout
             android:id="@+id/dishesContainer"
             android:layout_width="match_parent"
@@ -152,7 +149,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:visibility="gone" />
 
-        <!-- כפתור Back -->
         <Button
             android:id="@+id/backButtonMenu"
             android:layout_width="wrap_content"

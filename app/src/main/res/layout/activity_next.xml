@@ -6,7 +6,7 @@
     android:background="@drawable/background_particles"
     android:padding="16dp">
 
-    <!-- לוגו -->
+    <!-- Logo positioned near the top -->
     <ImageView
         android:id="@+id/logo"
         android:layout_width="120dp"
@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.1" />
 
-    <!-- טקסט 'Students' -->
+    <!-- "Students" header text -->
     <TextView
         android:id="@+id/studentText"
         android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <!-- טקסט 'Friendly' -->
+    <!-- "Friendly" header text -->
     <TextView
         android:id="@+id/friendlyText"
         android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.1" />
 
-    <!-- טקסט 'Fuel Your Studies' -->
+    <!-- Slogan text -->
     <TextView
         android:id="@+id/sloganText"
         android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.05" />
 
-    <!-- טקסט 'Affordable & Convenient' -->
+    <!-- Text about affordability -->
     <TextView
         android:id="@+id/affordableText"
         android:layout_width="wrap_content"
@@ -72,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.05" />
 
-    <!-- תמונה של סטודנט -->
+    <!-- Image representing students -->
     <ImageView
         android:id="@+id/student"
         android:layout_width="150dp"
@@ -83,10 +83,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.2" />
 
-    <!-- כפתור 'Menu' -->
 
-    <!-- כפתור 'Reservation' -->
-
+    <!-- Button to navigate to the menu -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/reservationButton"
         android:layout_width="wrap_content"
@@ -102,6 +100,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Button to make a reservation -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/menuButton"
         android:layout_width="wrap_content"

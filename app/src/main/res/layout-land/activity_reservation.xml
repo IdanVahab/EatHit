@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layoutDirection="locale">
 
-        <!-- כותרת כללית למסך -->
         <TextView
             android:id="@+id/reservationTitle"
             android:layout_width="wrap_content"
@@ -28,7 +27,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- פרטי הטופס בצד שמאל -->
         <LinearLayout
             android:id="@+id/formContainer"
             android:layout_width="0dp"
@@ -40,7 +38,6 @@
             app:layout_constraintEnd_toStartOf="@id/confirmationAnimation"
             app:layout_constraintBottom_toBottomOf="parent">
 
-            <!-- פרטים אישיים -->
             <TextView
                 android:id="@+id/personalDetailsTitle"
                 android:layout_width="wrap_content"
@@ -85,7 +82,6 @@
                 android:autofillHints="emailAddress"
                 android:minHeight="48dp" />
 
-            <!-- פרטי הזמנה -->
             <TextView
                 android:id="@+id/reservationDetailsTitle"
                 android:layout_width="wrap_content"
@@ -122,7 +118,7 @@
                 android:id="@+id/numberOfPeopleSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp" /> <!-- הגדלת גודל מגע -->
+                android:minHeight="48dp" />
 
             <Spinner
                 android:id="@+id/seatingPreferenceSpinner"
@@ -175,7 +171,6 @@
         app:layout_constraintTop_toTopOf="@id/formContainer"
         app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- כפתורים -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -186,7 +181,6 @@
             android:gravity="end"
         android:layoutDirection="locale">
 
-        <!-- כפתור חזור -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
@@ -199,7 +193,6 @@
             app:cornerRadius="16dp"
             android:layout_marginEnd="8dp" />
 
-        <!-- כפתור שליחה -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/submitButton"
             android:layout_width="wrap_content"

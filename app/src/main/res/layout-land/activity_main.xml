@@ -8,7 +8,6 @@
     >
 
 
-    <!-- רקע דינמי -->
     <ImageView
         android:id="@+id/background"
         android:layout_width="match_parent"
@@ -20,9 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- לוגו -->
 
-    <!-- אנימציית אוכל -->
     <ImageView
         android:id="@+id/logo"
         android:layout_width="150dp"

@@ -16,7 +16,8 @@
     <string name="pick_date_button">בחר תאריך</string>
     <string name="pick_time_button">בחר שעה</string>
     <string name="submit_reservation_button">שלח הזמנה</string>
-
+    <string name="select_time">בחר שעה</string>
+    <string name="datePickerButton">בחר תאריך</string>
     <string name="back_to_main_menu">אישור הזמנה וחזרה לתפריט הראשי</string>
     <string name="rate_experience_prompt">איך היית מדרג את החוויה שלך?</string>
     <string name="menu_title">ברוכים הבאים לתפריט!</string>
