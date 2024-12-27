@@ -1,0 +1,94 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/animation_card_background"
+    android:elevation="4dp"
+    android:layout_margin="8dp">
+
+    <!-- Item Name and Price -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/itemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item Name"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/itemPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="₪0.00"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray" />
+    </LinearLayout>
+
+    <!-- Quantity Controls -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginEnd="16dp">
+
+        <!-- Increment Button -->
+        <ImageButton
+            android:id="@+id/incrementButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/plus_icon_black"
+            android:background="@drawable/button_background"
+            android:contentDescription="@string/plus"
+            android:elevation="2dp"
+            android:scaleType="centerInside"
+            android:padding="2dp" />
+
+        <TextView
+            android:id="@+id/itemQuantity"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_marginHorizontal="8dp"
+            android:text="1"
+            android:textSize="16sp"
+            android:background="@drawable/quantity_background"
+            android:textColor="@android:color/black" />
+
+        <!-- Decrement Button -->
+        <ImageButton
+            android:id="@+id/decrementButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/minus_icon_black"
+            android:background="@drawable/button_background"
+            android:contentDescription="@string/minus"
+            android:elevation="2dp"
+            android:scaleType="centerInside"
+            android:padding="2dp" />
+    </LinearLayout>
+
+    <!-- Remove Button -->
+    <ImageButton
+        android:id="@+id/removeButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/remove_ocon_black"
+        android:background="@drawable/button_background_red"
+        android:contentDescription="@string/cancel"
+        android:elevation="2dp"
+        android:scaleType="centerInside"
+        android:padding="4dp" />
+</LinearLayout>

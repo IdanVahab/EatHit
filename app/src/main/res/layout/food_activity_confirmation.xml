@@ -1,0 +1,66 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@drawable/background_particles">
+
+    <!-- App Logo -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo"
+        tools:ignore="ImageContrastCheck" />
+
+    <!-- Confirmation Animation -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/confirmationAnimation"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/confirmation"
+        tools:ignore="ImageContrastCheck" />
+
+    <!-- Reservation Details Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/reservationCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        android:backgroundTint="@color/primary">
+
+        <!-- TextView displaying reservation details -->
+        <TextView
+            android:id="@+id/confirmationDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:text="@string/reservation_details_title" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Back Button to return to the main menu -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="@string/back_to_main_menu"
+        android:textColor="@android:color/black"
+        android:backgroundTint="@color/secondary"
+        app:cornerRadius="16dp"
+        app:iconSize="24dp" />
+</LinearLayout>

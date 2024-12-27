@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_particles"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingBottom="32dp"
+        android:paddingTop="16dp">
+
+        <!-- Delivery Details Title -->
+        <TextView
+            android:id="@+id/deliveryDetailsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delivery_details_title"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:shadowColor="#808080"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="3"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp" />
+
+        <!-- Full Name -->
+        <EditText
+            android:id="@+id/fullNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/full_name"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Address -->
+        <EditText
+            android:id="@+id/addressEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/address"
+            android:inputType="textPostalAddress"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Preferred Delivery Time -->
+        <Button
+            android:id="@+id/selectTimeButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/black"
+            android:text="@string/select_preferred_delivery_time" />
+
+        <!-- Payment Method -->
+        <Spinner
+            android:id="@+id/paymentMethodSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:entries="@array/payment_methods" />
+
+        <!-- Payment Details -->
+        <LinearLayout
+            android:id="@+id/paymentDetailsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginBottom="24dp">
+
+            <!-- Credit Card Number -->
+            <EditText
+                android:id="@+id/creditCardNumberEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_credit_card_number"
+                android:inputType="number"
+                android:padding="12dp" />
+
+            <!-- CVV -->
+            <EditText
+                android:id="@+id/cvvEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_cvv"
+                android:inputType="numberPassword"
+                android:padding="12dp" />
+
+            <!-- Expiry Date -->
+            <EditText
+                android:id="@+id/expiryDateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_expiry_date_mm_yy"
+                android:inputType="text"
+                android:padding="12dp"
+                tools:ignore="TextFields" />
+        </LinearLayout>
+
+        <!-- Coupon Code -->
+        <EditText
+            android:id="@+id/couponEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_coupon_code"
+            android:inputType="text"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Order Type -->
+        <Spinner
+            android:id="@+id/orderTypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:entries="@array/order_types" />
+
+        <!-- Total Cost -->
+        <TextView
+            android:id="@+id/totalCostTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total: ₪0.00"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Complete Order Button -->
+        <Button
+            android:id="@+id/completeOrderButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/complete_food_order"
+            android:backgroundTint="@color/secondary"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/back_button_text"
+            android:backgroundTint="@color/primary"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+</ScrollView>
