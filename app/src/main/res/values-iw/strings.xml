@@ -8,7 +8,7 @@
     <string name="friendly_text">הסטודנטים</string>
     <string name="affordable_text">נגיש ונוח</string>
     <string name="menu_button">תפריט</string>
-    <string name="reservation_button">הזמנה</string>
+    <string name="reservation_button">הזמנת שולחן</string>
     <string name="personal_details_title">פרטים אישיים</string>
     <string name="full_name_hint">שם מלא</string>
     <string name="phone_number_hint">מספר טלפון</string>
@@ -27,7 +27,7 @@
     <string name="back_button_text">חזור</string>
     <string name="default_dish_name">שם המנה</string>
     <string name="default_dish_description">תיאור המנה כאן.</string>
-    <string name="default_dish_price">₪ 19.00</string>
+    <string name="default_dish_price">₪ 19.00</string>ע
     <string-array name="number_of_people">
         <item>מספר אורחים</item>
         <item>1</item>
@@ -40,6 +40,11 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
+    </string-array>
+    <string-array name="order_types">
+        <item>סוג הזמנה</item>
+        <item>משלוח</item>
+        <item>איסוף עצמי</item>
     </string-array>
     <string-array name="seating_preferences">
         <item>העדפת ישיבה</item>
@@ -69,5 +74,23 @@
     <string name="feedback_message_without_rating">תודה שביקרת אצלנו!</string>
     <string name="submit">שלח</string>
     <string name="cancel">ביטול</string>
+    <string name="complete_order">סיום הזמנה</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="enter_coupon_code">הכנס קוד קופון</string>
+    <string name="enter_expiry_date_mm_yy">הכנס תאריך תפוגה (חודש/שנה)</string>
+    <string name="enter_cvv">הכנס קוד CVV</string>
+    <string name="enter_credit_card_number">הכנס מספר כרטיס אשראי</string>
+    <string name="select_preferred_delivery_time">בחר זמן משלוח מועדף</string>
+    <string name="address">כתובת</string>
+    <string name="full_name">שם מלא</string>
+    <string name="complete_food_order">סיים הזמנת אוכל</string>
+    <string name="view_cart">הצגת הזמנה</string>
+    <string name="delivery_details_title">פרטי הזמנת משלוח </string>
+    <string name="my_cart">העגלה שלי</string>
+    <string name="food_confirmation_template">
+    "שם: %1$s\nכתובת: %2$s\nשעת משלוח: %3$s\nסה"כ עלות: %4$s"
+</string>
+
 
 </resources>

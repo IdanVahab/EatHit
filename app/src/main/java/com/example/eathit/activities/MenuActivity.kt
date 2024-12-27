@@ -1,6 +1,8 @@
-package com.example.eathit
+package com.example.eathit.activities
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -10,111 +12,104 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.eathit.R
+import com.example.eathit.managers.CartItem
+import com.example.eathit.managers.CartManager
 import java.util.Locale
 
 /**
- * MenuActivity:
- * This activity displays a menu with categories (Meals, Drinks, Desserts) and their respective items.
- * Users can click on cards to view items in a category, and select items to add them to the cart.
- * Includes animations for user interactions and localized support for English and Hebrew.
+ * Displays a menu with categories (Meals, Drinks, Desserts) and their respective items.
+ * Users can select items to add to the cart with animations and localized support.
  */
-
 class MenuActivity : AppCompatActivity() {
+
+    private lateinit var cartManager: CartManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        // Container for displaying the list of dishes
-        val dishesContainer: LinearLayout = findViewById(R.id.dishesContainer)
+        // Initialize cart manager
+        cartManager = CartManager(this)
 
-        // Back button with a scaling animation and a transition back to the previous activity
-        val backButton: Button = findViewById(R.id.backButtonMenu)
-        backButton.setOnClickListener {
-            backButton.animate()
-                .scaleX(1.1f)
-                .scaleY(1.1f)
-                .setDuration(150)
-                .withEndAction {
-                    backButton.animate()
-                        .scaleX(1f)
-                        .scaleY(1f)
-                        .setDuration(150)
-                        .withEndAction {
-                            finish()
-                            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-                        }.start()
-                }.start()
-        }
-        // Food card to display meal items
-        val foodCard: FrameLayout = findViewById(R.id.foodCard)
-        foodCard.setOnClickListener {
-            foodCard.animate()
-                .scaleX(1.1f)
-                .scaleY(1.1f)
-                .withEndAction {
-                    foodCard.animate()
-                        .scaleX(1f)
-                        .scaleY(1f)
-                        .setDuration(150)
-                        .start()
-                }.start()
-            // Display meal items in the container
-            showDishes(getMeals(), dishesContainer)
-        }
-        // Drinks card to display drink items
-        val drinksCard: FrameLayout = findViewById(R.id.drinksCard)
-        drinksCard.setOnClickListener {
-            drinksCard.animate()
-                .scaleX(1.1f)
-                .scaleY(1.1f)
-                .setDuration(150)
-                .withEndAction {
-                    drinksCard.animate()
-                        .scaleX(1f)
-                        .scaleY(1f)
-                        .setDuration(150)
-                        .start()
-                }.start()
-            // Display drink items in the container
-            showDishes(getDrinks(), dishesContainer)
-        }
-        // Dessert card to display dessert items
-        val dessertCard: FrameLayout = findViewById(R.id.dessertCard)
-        dessertCard.setOnClickListener {
-            dessertCard.animate()
-                .scaleX(1.1f)
-                .scaleY(1.1f)
-                .setDuration(150)
-                .withEndAction {
-                    dessertCard.animate()
-                        .scaleX(1f)
-                        .scaleY(1f)
-                        .setDuration(150)
-                        .start()
-                }.start()
-            // Display dessert items in the container
-            showDishes(getDesserts(), dishesContainer)
-        }
-
-
+        // Initialize UI elements
+        initButtons()
     }
+
     /**
-     * Displays a list of dishes in the provided container with animations and click listeners.
-     * @param dishes List of dishes to display.
-     * @param container Layout container where the dishes will be displayed.
+     * Initialize and set up all buttons and categories.
+     */
+    private fun initButtons() {
+        val cartButton: Button = findViewById(R.id.cartButton)
+        val backButton: Button = findViewById(R.id.backButtonMenu)
+        val dishesContainer: LinearLayout = findViewById(R.id.dishesContainer)
+        val foodCard: FrameLayout = findViewById(R.id.foodCard)
+        val drinksCard: FrameLayout = findViewById(R.id.drinksCard)
+        val dessertCard: FrameLayout = findViewById(R.id.dessertCard)
+
+        // Cart button - Navigate to CartActivity
+        cartButton.setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+        }
+
+        // Back button - Return to the previous activity
+        backButton.setOnClickListener {
+            finish()
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        }
+
+        // Set up category cards
+        setupCategoryCard(foodCard, dishesContainer) { getMeals() }
+        setupCategoryCard(drinksCard, dishesContainer) { getDrinks() }
+        setupCategoryCard(dessertCard, dishesContainer) { getDesserts() }
+    }
+
+    /**
+     * Sets up a category card with click listeners and animations.
+     */
+    private fun setupCategoryCard(
+        card: FrameLayout,
+        container: LinearLayout,
+        getDishes: () -> List<Dish>
+    ) {
+        card.setOnClickListener {
+            animateCard(card)
+            showDishes(getDishes(), container)
+        }
+    }
+
+    /**
+     * Animates a card with scaling effects.
+     */
+    private fun animateCard(card: FrameLayout) {
+        card.animate()
+            .scaleX(1.1f)
+            .scaleY(1.1f)
+            .setDuration(150)
+            .withEndAction {
+                card.animate()
+                    .scaleX(1f)
+                    .scaleY(1f)
+                    .setDuration(150)
+                    .start()
+            }.start()
+    }
+
+    /**
+     * Displays a list of dishes in the provided container.
      */
     private fun showDishes(dishes: List<Dish>, container: LinearLayout) {
         container.removeAllViews()
         container.visibility = View.VISIBLE
         container.alpha = 0f
         container.animate().alpha(1f).setDuration(500).start()
+
         val locale = Locale.getDefault().language
 
         dishes.forEach { dish ->
-            // Inflate a new dish card view
             val dishView = LayoutInflater.from(this).inflate(R.layout.menu_item_card, container, false)
-            // Bind data to the dish card views
+
+            // Bind data to the dish card
             val dishImage: ImageView = dishView.findViewById(R.id.dishImage)
             val dishName: TextView = dishView.findViewById(R.id.dishName)
             val dishDescription: TextView = dishView.findViewById(R.id.dishDescription)
@@ -125,19 +120,40 @@ class MenuActivity : AppCompatActivity() {
             dishDescription.text = if (locale == "he") dish.descriptionHebrew else dish.description
             dishPrice.text = dish.price
 
-            // Add click listener to the dish card
             dishView.setOnClickListener {
-                // Animate selection of the dish
-                dishView.animate().scaleX(1.05f).scaleY(1.05f).setDuration(150).withEndAction {
-                    dishView.animate().scaleX(1f).scaleY(1f).setDuration(150).start()
-                }
-                // Display a toast message indicating the dish was added to the cart
-                val toastText = if (locale == "he") "${dish.nameHebrew} נוסף לעגלה!" else "${dish.name} added to cart!"
-                Toast.makeText(this, toastText, Toast.LENGTH_SHORT).show()
+                addDishToCart(dish, locale)
+                animateDishSelection(dishView)
             }
-            // Add the dish card to the container
+
             container.addView(dishView)
         }
+    }
+
+    /**
+     * Adds a dish to the cart and displays a toast message.
+     */
+    private fun addDishToCart(dish: Dish, locale: String) {
+        val toastText = if (locale == "he") "${dish.nameHebrew} נוסף לעגלה!" else "${dish.name} added to cart!"
+        Toast.makeText(this, toastText, Toast.LENGTH_SHORT).show()
+        cartManager.addItem(CartItem(dish.name, dish.price.replace("₪", "").toDouble(), 1))
+        Log.d("CartManager", "Current cart items: ${cartManager.getItems()}")
+    }
+
+    /**
+     * Animates the selection of a dish.
+     */
+    private fun animateDishSelection(dishView: View) {
+        dishView.animate()
+            .scaleX(1.05f)
+            .scaleY(1.05f)
+            .setDuration(150)
+            .withEndAction {
+                dishView.animate()
+                    .scaleX(1f)
+                    .scaleY(1f)
+                    .setDuration(150)
+                    .start()
+            }
     }
     // Returns a list of meals available in the menu
     private fun getMeals(): List<Dish> {
@@ -215,7 +231,9 @@ class MenuActivity : AppCompatActivity() {
         )
     }
 }
-// Data class representing a dish item
+/**
+ * Data class representing a dish item.
+ */
 data class Dish(
     val name: String,
     val nameHebrew: String,

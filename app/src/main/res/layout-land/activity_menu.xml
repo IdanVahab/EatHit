@@ -1,164 +1,202 @@
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_particles"
-    android:padding="16dp"
-    android:fillViewport="true">
+    android:background="@drawable/background_particles">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- ScrollView for the menu content -->
+    <ScrollView
+        android:id="@+id/menuScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fillViewport="true">
+
+        <!-- Menu Content -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Title TextView for the menu -->
+            <TextView
+                android:id="@+id/menuText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_title"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp" />
+
+            <!-- Row for food, drinks, and dessert animation cards -->
+            <LinearLayout
+                android:id="@+id/animationsRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/menuText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <!-- Food Card -->
+                <FrameLayout
+                    android:id="@+id/foodCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/animation_card_background"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/foodAnimation"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            app:lottie_rawRes="@raw/maindish"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true" />
+
+                        <TextView
+                            android:id="@+id/foodText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/food_section"
+                            android:textSize="16sp"
+                            android:layout_marginTop="10dp" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <!-- Drinks Card -->
+                <FrameLayout
+                    android:id="@+id/drinksCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/animation_card_background"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/drinksAnimation"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            app:lottie_rawRes="@raw/drinks"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true" />
+
+                        <TextView
+                            android:id="@+id/drinksText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/drinks_section"
+                            android:textSize="16sp"
+                            android:layout_marginTop="10dp" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <!-- Dessert Card -->
+                <FrameLayout
+                    android:id="@+id/dessertCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/animation_card_background"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/dessertAnimation"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            app:lottie_rawRes="@raw/dessert"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true" />
+
+                        <TextView
+                            android:id="@+id/dessertsText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/desserts_section"
+                            android:textSize="16sp"
+                            android:layout_marginTop="10dp" />
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- Dishes Container -->
+            <LinearLayout
+                android:id="@+id/dishesContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/animationsRow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- Button container -->
+    <LinearLayout
+        android:id="@+id/buttonContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
 
-        <TextView
-            android:id="@+id/menuText"
-            android:layout_width="wrap_content"
+        <!-- View Cart Button -->
+        <Button
+            android:id="@+id/cartButton"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="@string/menu_title"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="20dp" />
+            android:text="@string/view_cart"
+            android:backgroundTint="@color/secondary"
+            android:textColor="@android:color/black"
+            android:layout_marginEnd="16dp" />
 
-        <LinearLayout
-            android:id="@+id/animationsRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/menuText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <FrameLayout
-                android:id="@+id/foodCard"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="1dp"
-                android:background="@drawable/animation_card_background"
-                android:elevation="1dp"
-                android:padding="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:id="@+id/foodAnimation"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        app:lottie_rawRes="@raw/maindish"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="false" />
-
-                    <TextView
-                        android:id="@+id/foodText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/food_section"
-                        android:textSize="16sp"
-                        android:layout_marginTop="10dp" />
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/drinksCard"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="1dp"
-                android:background="@drawable/animation_card_background"
-                android:elevation="1dp"
-                android:padding="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:id="@+id/drinksAnimation"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        app:lottie_rawRes="@raw/drinks"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="false" />
-
-                    <TextView
-                        android:id="@+id/drinksText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/drinks_section"
-                        android:textSize="16sp"
-                        android:layout_marginTop="10dp" />
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/dessertCard"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="1dp"
-                android:background="@drawable/animation_card_background"
-                android:elevation="1dp"
-                android:padding="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:id="@+id/dessertAnimation"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        app:lottie_rawRes="@raw/dessert"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="false" />
-
-                    <TextView
-                        android:id="@+id/dessertsText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/desserts_section"
-                        android:textSize="16sp"
-                        android:layout_marginTop="10dp" />
-                </LinearLayout>
-            </FrameLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/dishesContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            app:layout_constraintTop_toBottomOf="@id/animationsRow"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:visibility="gone" />
-
+        <!-- Back Button -->
         <Button
             android:id="@+id/backButtonMenu"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/back_button_text"
+            android:backgroundTint="@color/primary"
             android:textColor="@android:color/black"
-            android:backgroundTint="@color/secondary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="20dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

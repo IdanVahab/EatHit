@@ -1,4 +1,4 @@
-package com.example.eathit
+package com.example.eathit.activities
 
 import android.animation.Animator
 import android.content.Intent
@@ -10,23 +10,37 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.airbnb.lottie.LottieAnimationView
+import com.example.eathit.R
 
 /**
- * ConfirmationActivity:
- * This activity displays a confirmation animation and reservation details after a successful booking.
- * It also includes a rating dialog for user feedback and a back button to navigate to the previous screen.
+ * Displays a confirmation animation and reservation details after a successful booking.
+ * Includes a rating dialog for user feedback and navigation back to the main menu.
  */
 class ConfirmationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirmation)
-        // UI components
+
+        // Initialize views
         val confirmationAnimation: LottieAnimationView = findViewById(R.id.confirmationAnimation)
         val reservationDetails: TextView = findViewById(R.id.reservationDetails)
         val backButton: Button = findViewById(R.id.backButton)
 
-        // Retrieve reservation details from the Intent
+        // Display reservation details
+        setupReservationDetails(reservationDetails)
+
+        // Set up and play confirmation animation
+        setupConfirmationAnimation(confirmationAnimation, reservationDetails)
+
+        // Back button setup
+        setupBackButton(backButton)
+    }
+
+    /**
+     * Retrieves and formats reservation details from the Intent, then displays them.
+     */
+    private fun setupReservationDetails(reservationDetails: TextView) {
         val fullName = intent.getStringExtra("FULL_NAME") ?: "N/A"
         val phone = intent.getStringExtra("PHONE") ?: "N/A"
         val email = intent.getStringExtra("EMAIL") ?: "N/A"
@@ -35,26 +49,26 @@ class ConfirmationActivity : AppCompatActivity() {
         val numberOfPeople = intent.getStringExtra("NUMBER_OF_PEOPLE") ?: "N/A"
         val seatingPreference = intent.getStringExtra("SEATING_PREFERENCE") ?: "N/A"
 
-        // Format the reservation details
         val reservationText = getString(
             R.string.reservation_details_template,
-            fullName,
-            phone,
-            email,
-            date,
-            time,
-            numberOfPeople,
-            seatingPreference
+            fullName, phone, email, date, time, numberOfPeople, seatingPreference
         )
 
         reservationDetails.text = reservationText
-        reservationDetails.alpha = 0f // Initially hide the details
-        // Set up the confirmation animation
+        reservationDetails.alpha = 0f // Hide initially
+    }
+
+    /**
+     * Configures and plays the confirmation animation, then shows the reservation details.
+     */
+    private fun setupConfirmationAnimation(
+        confirmationAnimation: LottieAnimationView,
+        reservationDetails: TextView
+    ) {
         confirmationAnimation.setAnimation(R.raw.confirmation)
         confirmationAnimation.repeatCount = 0
         confirmationAnimation.playAnimation()
 
-        // Listener to show reservation details after the animation ends
         confirmationAnimation.addAnimatorListener(object : Animator.AnimatorListener {
             override fun onAnimationStart(animation: Animator) {}
 
@@ -67,8 +81,12 @@ class ConfirmationActivity : AppCompatActivity() {
 
             override fun onAnimationRepeat(animation: Animator) {}
         })
+    }
 
-        // Back button with a scaling animation and navigation to the previous activity
+    /**
+     * Configures the back button with animation and navigation to the next activity.
+     */
+    private fun setupBackButton(backButton: Button) {
         backButton.setOnClickListener {
             backButton.animate()
                 .scaleX(1.1f)
@@ -79,43 +97,52 @@ class ConfirmationActivity : AppCompatActivity() {
                         .scaleY(1f)
                         .setDuration(150)
                         .withEndAction {
-                            startActivity(Intent(this,NextActivity::class.java))
-                            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                            navigateToNextActivity()
                         }.start()
                 }.start()
-
         }
     }
 
     /**
-     * Shows a dialog to allow the user to rate their experience.
-     * Includes a RatingBar and feedback message based on the user's input.
+     * Navigates to the NextActivity with transition animation.
+     */
+    private fun navigateToNextActivity() {
+        startActivity(Intent(this, NextActivity::class.java))
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+    }
+
+    /**
+     * Shows a dialog for the user to rate their experience.
      */
     private fun showRatingDialog() {
-        // Inflate the custom rating dialog layout
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_rating, null)
         val ratingBar = dialogView.findViewById<RatingBar>(R.id.ratingBar)
 
-        // Build and display the rating dialog
         AlertDialog.Builder(this)
             .setTitle(getString(R.string.rate_your_experience))
             .setView(dialogView)
             .setPositiveButton(getString(R.string.submit)) { _, _ ->
                 val rating = ratingBar.rating
-                val message = if (rating > 0) {
-                    getString(R.string.feedback_message_with_rating, rating)
-                } else {
-                    getString(R.string.feedback_message_without_rating)
-                }
-
-                AlertDialog.Builder(this)
-                    .setTitle(getString(R.string.thank_you_title))
-                    .setMessage(message)
-                    .setPositiveButton("OK", null)
-                    .show()
+                showFeedbackDialog(rating)
             }
             .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 
+    /**
+     * Displays a thank-you dialog with feedback based on the user's rating.
+     */
+    private fun showFeedbackDialog(rating: Float) {
+        val message = if (rating > 0) {
+            getString(R.string.feedback_message_with_rating, rating)
+        } else {
+            getString(R.string.feedback_message_without_rating)
+        }
+
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.thank_you_title))
+            .setMessage(message)
+            .setPositiveButton("OK", null)
+            .show()
+    }
 }

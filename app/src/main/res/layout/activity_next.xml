@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        android:layout_marginTop="24dp" />
 
     <!-- "Students" header text -->
     <TextView
@@ -23,13 +23,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/students_text"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         android:textColor="@android:color/black"
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/logo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- "Friendly" header text -->
     <TextView
@@ -37,13 +37,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/friendly_text"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@id/studentText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Slogan text -->
     <TextView
@@ -52,12 +51,11 @@
         android:layout_height="wrap_content"
         android:text="@string/fuel_your_studies_with_delicious_meals"
         android:textSize="20sp"
-        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@id/friendlyText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Text about affordability -->
     <TextView
@@ -66,11 +64,11 @@
         android:layout_height="wrap_content"
         android:text="@string/affordable_text"
         android:textSize="20sp"
+        android:layout_marginTop="16dp"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@id/sloganText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Image representing students -->
     <ImageView
@@ -78,34 +76,17 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/student_pic"
+        android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/affordableText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
-
-
-    <!-- Button to navigate to the menu -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/reservationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:paddingStart="32dp"
-        android:paddingEnd="32dp"
-        android:text="@string/reservation_button"
-        android:textColor="@android:color/black"
-        android:backgroundTint="@color/secondary"
-        app:cornerRadius="16dp"
-        app:layout_constraintTop_toBottomOf="@id/menuButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Button to make a reservation -->
+    <!-- Button to navigate to the menu -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/menuButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:paddingStart="32dp"
         android:paddingEnd="32dp"
         android:text="@string/menu_button"
@@ -116,5 +97,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Button to make a reservation -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reservationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:text="@string/reservation_button"
+        android:textColor="@android:color/black"
+        android:backgroundTint="@color/secondary"
+        app:cornerRadius="16dp"
+        app:layout_constraintTop_toBottomOf="@id/menuButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

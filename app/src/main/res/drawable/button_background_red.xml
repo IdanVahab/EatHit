@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- הגדרת צבע הרקע -->
+    <solid android:color="@color/red" />
+
+    <!-- הגדרת רדיוס הפינות -->
+    <corners android:radius="12dp" />
+
+    <!-- הגדרת גבול מסביב לכפתור (אופציונלי) -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/white" />
+</shape>

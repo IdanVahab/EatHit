@@ -20,6 +20,7 @@
     <color name="backgroundGradientEnd">#173F4E</color>
     <color name="backgroundGradientDarkStart">#112B3C</color>
     <color name="backgroundGradientDarkEnd">#264653</color>
+    <color name="red">#FF2C2C</color>
 
 
 

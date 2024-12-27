@@ -8,7 +8,7 @@
     <string name="friendly_text">Friendly</string>
     <string name="affordable_text">Affordable &amp; Convenient</string>
     <string name="menu_button">Menu</string>
-    <string name="reservation_button">Reservation</string>
+    <string name="reservation_button">Table Reservation</string>
     <string name="personal_details_title">Personal Details</string>
     <string name="full_name_hint">Full Name</string>
     <string name="phone_number_hint">Phone Number</string>
@@ -41,6 +41,12 @@
         <item>9</item>
         <item>10</item>
     </string-array>
+    <string-array name="order_types">
+        <item>Order Type</item>
+        <item>Delivery</item>
+        <item>Pickup</item>
+    </string-array>
+
     <string-array name="seating_preferences">
         <item>Preferred Seating</item>
         <item>Indoors</item>
@@ -69,5 +75,22 @@
     <string name="feedback_message_without_rating">Thank you for visiting us!</string>
     <string name="submit">Submit</string>
     <string name="cancel">Cancel</string>
+    <string name="complete_order">Complete Order</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="enter_coupon_code">Enter Coupon Code</string>
+    <string name="enter_expiry_date_mm_yy">Enter Expiry Date (MM/YY)</string>
+    <string name="enter_cvv">Enter CVV</string>
+    <string name="enter_credit_card_number">Enter Credit Card Number</string>
+    <string name="select_preferred_delivery_time">Select Preferred Delivery Time</string>
+    <string name="address">Address</string>
+    <string name="full_name">Full Name</string>
+    <string name="complete_food_order">Complete Food Order</string>
+    <string name="view_cart">View Cart</string>
+    <string name="delivery_details_title">Delivery details title</string>
+    <string name="my_cart">My Cart</string>
+    <string name="food_confirmation_template">
+    "שם: %1$s\nכתובת: %2$s\nשעת משלוח: %3$s\nסה\"כ עלות: %4$s"
+</string>
 
 </resources>
